@@ -1,24 +1,9 @@
 import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
-import com.sun.javafx.tk.quantum.PathIteratorHelper.Struct;
-
-public class Log {
-
-    Sting day;// 操作日
-    string operation;// 操作した内容
-    long amount;// 操作した量
-    long balance;// 操作した結果の残高
-
-    public Log(String day, string operation, long amount, long balance) {
-        day = this.day;
-        operation = this.operation;
-        amount = this.amount;
-        balance = this.balance;
-    }
-}
 
 public class Account implements Serializable {
+    private static final long serialVersionUID = 1L;
     public final String bankName;// 銀行名
     public final String branchName;// 支店名
     public final String accountHolder;// 名義
@@ -37,7 +22,15 @@ public class Account implements Serializable {
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
     }
 
-
+    public Account() {
+        bankName = "35銀行";
+        branchName = "オンライン支店";
+        accountHolder = Holder;
+        accountID = "";
+        accountPIN = "";
+        amount = 0;
+        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+    }
 
     /*
      * public int checkAccount() {
@@ -68,7 +61,7 @@ public class Account implements Serializable {
     }
 
     // ログを蓄積
-    public void makeLog(string l, string ope, long a, long b) {
+    public void makeLog(String l, String ope, long a, long b) {
         Log tmpLog = new Log();
         tmpLog.day = l;
         tmpLog.operation = ope;
