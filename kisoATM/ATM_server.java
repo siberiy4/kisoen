@@ -15,6 +15,8 @@ public class ATM_server {
         try {
             serverSocket = new ServerSocket(ECHO_PORT);
 
+  
+
             while (true) {
                 Socket socket = serverSocket.accept();
                 ATM_Server_Thread th = new ATM_Server_Thread(socket);

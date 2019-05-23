@@ -32,11 +32,19 @@ public class Account implements Serializable {
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
     }
 
-    /*
-     * public int checkAccount() {
-     * 
-     * }
-     */
+    // higashi
+    public int checkAccount() {
+        long ID = 0;
+        while (1) {
+            Path filePath = Paths.get("./%d", ID);
+            if (Files.notExists(filePath)) { // ID番号が存在しなければ終了
+                break;
+            }
+            ID++;
+            return ID; // while処理が終了したときの番号を返す
+        }
+    }
+
     // 預金操作
     public void deposit(int value) {
         amount += value;// 預金操作
@@ -69,16 +77,7 @@ public class Account implements Serializable {
         tmpLog.balance = b;
 
         logList.add(tmpLog);
-        try (File file = new File(accountID + ".txt")) {
-            if (file.exists()) {
-                FileWriter filewriter = new FileWriter(file, true);
-                filewriter.write(tmpLog.day + " " + tmpLog.operation + " " + tmpLog.amount + " " + tmpLog.balance);
-                filewriter.close();
-            } else {
-            }
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
 }
