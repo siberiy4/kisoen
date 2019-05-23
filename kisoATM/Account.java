@@ -37,9 +37,7 @@ public class Account implements Serializable {
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
     }
 
-    public void name() {
 
-    }
 
     /*
      * public int checkAccount() {
