@@ -3,19 +3,12 @@ import java.text.DateFormat;
 import java.util.*;
 import com.sun.javafx.tk.quantum.PathIteratorHelper.Struct;
 
-/**
- * Account
- */
-
-/**
- * Log
- */
 public class Log {
 
-    Sting day;
-    string operation;
-    long amount;
-    long balance;
+    Sting day;// 操作日
+    string operation;// 操作した内容
+    long amount;// 操作した量
+    long balance;// 操作した結果の残高
 
     public Log(String day, string operation, long amount, long balance) {
         day = this.day;
@@ -26,13 +19,13 @@ public class Log {
 }
 
 public class Account implements Serializable {
-    public final String bankName;
-    public final String branchName;
-    public final String accountHolder;
-    public final String accountID;
-    public final String accountPIN;
-    public long amount;
-    List<Log> logList = new ArrayList<Log>();
+    public final String bankName;// 銀行名
+    public final String branchName;// 支店名
+    public final String accountHolder;// 名義
+    public final String accountID;// 口座ID
+    public final String accountPIN;// 暗証番号
+    public long amount;// 残高
+    List<Log> logList = new ArrayList<Log>();// ログの配列
 
     public Account(String Holder, int ID, char PIN[], long value) {
         bankName = "35銀行";
@@ -48,30 +41,35 @@ public class Account implements Serializable {
 
     }
 
-    public int checkAccount() {
-
-    }
-
+    /*
+     * public int checkAccount() {
+     * 
+     * }
+     */
+    // 預金操作
     public void deposit(int value) {
-        amount += value;
+        amount += value;// 預金操作
         Calendar cal = Calendar.getInstance();
         String now = DateFormat(cal);
         System.out.println(now + "," + accountID + ", Deposit" + value + ", " + amount);
         makeLog(now, "deposit", valie, amount);
     }
 
+    // 出金
     public long withdrawal(int value) {
-        amount -= value;
+        amount -= value;// 出金操作
         Calendar cal = Calendar.getInstance();
         String now = DateFormat(cal);
         System.out.println(now + "," + accountID + ", Withdrawal" + value + ", " + amount);
         makeLog(now, "withdrawal", value, amount);
     }
 
+    // 残高を取る
     public long getBalance() {
         return amount;
     }
 
+    // ログを蓄積
     public void makeLog(string l, string ope, long a, long b) {
         Log tmpLog = new Log();
         tmpLog.day = l;
