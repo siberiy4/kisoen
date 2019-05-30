@@ -11,10 +11,26 @@ public class Account implements Serializable {
     public final String accountPIN;// 暗証番号
     public long amount;// 残高
     List<Log> logList = new ArrayList<Log>();// ログの配列
-
+    
+    
+    public Account() {
+        bankName = "35銀行";
+        branchName = "オンライン支店";
+        accountHolder = Holder;
+        accountPIN = "";
+        amount = 0;
+        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+    }
     public Account(String Holder, int ID, char PIN[], long value) {
         bankName = "35銀行";
         branchName = "オンライン支店";
+        accountHolder = Holder;
+        accountPIN = PIN;
+        amount = value;
+        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+    }
+
+    public void setAccount(String Holder, int ID, char PIN[], long value) {
         accountHolder = Holder;
         accountID = ID;
         accountPIN = PIN;
@@ -22,18 +38,8 @@ public class Account implements Serializable {
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
     }
 
-    public Account() {
-        bankName = "35銀行";
-        branchName = "オンライン支店";
-        accountHolder = Holder;
-        accountID = "";
-        accountPIN = "";
-        amount = 0;
-        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
-    }
-
     // higashi
-    public int checkAccount() {
+    public void checkAccount() {
         long ID = 0;
         while (1) {
             Path filePath = Paths.get("./%d", ID);
@@ -41,9 +47,12 @@ public class Account implements Serializable {
                 break;
             }
             ID++;
-            return ID; // while処理が終了したときの番号を返す
         }
+
+        this.accountID=ID;
+
     }
+
 
     // 預金操作
     public void deposit(int value) {
