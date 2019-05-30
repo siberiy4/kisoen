@@ -14,4 +14,5 @@ public class Log implements Serializable {
         amount = this.amount;
         balance = this.balance;
     }
+    
 }

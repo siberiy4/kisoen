@@ -38,7 +38,7 @@ public class Account implements Serializable {
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
     }
 
-    // higashi
+    // made by higashi*****/
     public void checkAccount() {
         long ID = 0;
         while (1) {
@@ -52,7 +52,7 @@ public class Account implements Serializable {
         this.accountID=ID;
 
     }
-
+//**** */
 
     // 預金操作
     public void deposit(int value) {
@@ -88,5 +88,8 @@ public class Account implements Serializable {
         logList.add(tmpLog);
 
     }
+
+
+    
 
 }

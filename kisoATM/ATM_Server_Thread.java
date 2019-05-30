@@ -44,14 +44,7 @@ public class ATM_Server_Thread extends Thread {
             }
 
 
-
-/*
-            FileOutputStream outFile = new FileOutputStream(account.accountID);
-            ObjectOutputStream objectOut = new ObjectOutputStream(outFile);        
-            objectOut.writeObject(account);
-            objectOut.close();
-  
-  */
+            ObjectInputStream in = new ObjectInputStream(sock.getInputStream());
 
             socket.close();
 

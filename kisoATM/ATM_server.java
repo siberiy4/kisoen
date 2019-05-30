@@ -7,7 +7,7 @@ import java.net.SocketException;
  * ATM_server
  */
 public class ATM_server {
-    public static final int ECHO_PORT = 10007;
+    public static final int ECHO_PORT = 40001;
 
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
