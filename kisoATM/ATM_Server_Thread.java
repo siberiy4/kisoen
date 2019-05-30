@@ -18,7 +18,7 @@ public class ATM_Server_Thread extends Thread {
 
 
             DataInputStream inputData = new DataInputStream(in);
-
+            ObjectOutputStream outputObject = new ObjectOutputStream(out);
 
             int sinkiOrMember=inputData.readInt();
 
@@ -28,23 +28,22 @@ public class ATM_Server_Thread extends Thread {
                 ObjectInputStream inputObject=new ObjectInputStream(new FileInputStream(Integer.toString(memberNumber)));
                     Account accountData=(Account)inputObject.readObject();
                     inputObject.close();
+                outputObject.writeObject(accountData);
+
                 } catch (Exception e) {
                 Account accountData =new Account();
                 accountData.checkAccount();
+                outputObject.writeObject(accountData);
 
                 }
 
             }else{
             Account accountData =new Account();
                 accountData.checkAccount();
-            }
                 outputObject.writeObject(accountData);
+            }
 
 
-ObjectOutput outputObject=new ObjectOutputStream(new FileOutputStream(Integer.toString(accountData.accountID)));
-outputObject.writeObject(accountData);
-outputObject.flush();
-outputObject.close();
 
 /*
             FileOutputStream outFile = new FileOutputStream(account.accountID);

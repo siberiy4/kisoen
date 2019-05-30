@@ -16,7 +16,7 @@ public class Account implements Serializable {
     public Account() {
         bankName = "35銀行";
         branchName = "オンライン支店";
-        accountHolder = Holder;
+        accountHolder = "";
         accountPIN = "";
         amount = 0;
         System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
