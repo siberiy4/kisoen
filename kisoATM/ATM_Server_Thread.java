@@ -42,21 +42,14 @@ public class ATM_Server_Thread extends Thread {
                 accountData.checkAccount();
                 sendObject.writeObject(accountData);
             }
-            try{ 
             ObjectInputStream installObject = new ObjectInputStream(in);
-            }catch(Exception e){
-                e.printStackTrace();
-            }
             Account inputAccount =(Account)installObject.readObject();
-            try {
             ObjectOutput outputObject =new ObjectOutputStream(new FileOutputStream(inputAccount.accountID));
-                
-            } catch (Exception e) {
-                e.printStackTrace( );
-            }
-
             outputObject.writeObject(inputAccount);
             outputObject.close();
+
+
+
 
 
             installObject.close();
