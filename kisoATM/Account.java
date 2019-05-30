@@ -19,7 +19,7 @@ public class Account implements Serializable {
         accountHolder = "";
         accountPIN = "";
         amount = 0;
-        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+        System.out.println("make account "+ this.accountID + ", \t," + ", " + this.amount);
     }
     public Account(String Holder, int ID, char PIN[], long value) {
         bankName = "35銀行";
@@ -27,7 +27,7 @@ public class Account implements Serializable {
         accountHolder = Holder;
         accountPIN = PIN;
         amount = value;
-        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+        System.out.println("make account " + this.accountID + ", \t," +  ", " + this.amount);
     }
 
     public void setAccount(String Holder, int ID, char PIN[], long value) {
@@ -35,7 +35,7 @@ public class Account implements Serializable {
         accountID = ID;
         accountPIN = PIN;
         amount = value;
-        System.out.println("make account" + now + "," + accountID + ", \t," + value + ", " + amount);
+        System.out.println("set account"  + this.accountID + ", \t," + value + ", " + this.amount);
     }
 
     // made by higashi*****/
@@ -59,7 +59,7 @@ public class Account implements Serializable {
         amount += value;// 預金操作
         Calendar cal = Calendar.getInstance();
         String now = DateFormat(cal);
-        System.out.println(now + "," + accountID + ", Deposit" + value + ", " + amount);
+        System.out.println(now + "," + this.accountID + ", Deposit" + value + ", " + this.amount);
         makeLog(now, "deposit", valie, amount);
     }
 
@@ -68,13 +68,13 @@ public class Account implements Serializable {
         amount -= value;// 出金操作
         Calendar cal = Calendar.getInstance();
         String now = DateFormat(cal);
-        System.out.println(now + "," + accountID + ", Withdrawal" + value + ", " + amount);
+        System.out.println(now + "," + this.accountID + ", Withdrawal" + value + ", " + this.amount);
         makeLog(now, "withdrawal", value, amount);
     }
 
     // 残高を取る
     public long getBalance() {
-        return amount;
+        return this.amount;
     }
 
     // ログを蓄積
@@ -90,6 +90,6 @@ public class Account implements Serializable {
     }
 
 
-    
+
 
 }
