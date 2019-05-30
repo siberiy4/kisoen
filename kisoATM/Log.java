@@ -9,10 +9,10 @@ public class Log implements Serializable {
     long balance;// 操作した結果の残高
 
     public Log(String day, String operation, long amount, long balance) {
-        day = this.day;
-        operation = this.operation;
-        amount = this.amount;
-        balance = this.balance;
+        this.day = day;
+        this.operation = operation;
+        this.amount = amount;
+        this.balance = balance;
     }
     
 }

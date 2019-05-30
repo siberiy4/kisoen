@@ -79,11 +79,7 @@ public class Account implements Serializable {
 
     // ログを蓄積
     public void makeLog(String l, String ope, long a, long b) {
-        Log tmpLog = new Log();
-        tmpLog.day = l;
-        tmpLog.operation = ope;
-        tmpLog.amount = a;
-        tmpLog.balance = b;
+        Log tmpLog = new Log(l,ope,a,b);
 
         logList.add(tmpLog);
 
